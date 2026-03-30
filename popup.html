@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body { width: 160px; padding: 10px; font-family: -apple-system, sans-serif; margin: 0; }
+    h3 { font-size: 13px; margin: 0 0 10px; text-align: center; color: #333; }
+    .stats { display: flex; justify-content: space-around; padding-bottom: 8px; border-bottom: 1px solid #eee; margin-bottom: 8px;}
+    .stat-item { text-align: center; }
+    .label { font-size: 9px; color: #999; text-transform: uppercase; }
+    .count { font-size: 16px; font-weight: bold; display: block; }
+    .input-label { font-size: 10px; color: #666; display: block; margin-bottom: 3px; font-weight: bold;}
+    input { width: 100%; box-sizing: border-box; font-size: 11px; padding: 4px; border: 1px solid #ddd; border-radius: 4px; margin-bottom: 8px; }
+    .row { display: flex; gap: 5px; align-items: center; }
+    button { width: 100%; padding: 6px; cursor: pointer; border-radius: 4px; font-size: 11px; font-weight: 600; margin-top: 5px; transition: 0.2s; }
+    #saveBtn { background: #27ae60; color: white; border: none; }
+    #saveBtn:hover { background: #219150; }
+    #resetBtn { background: transparent; color: #999; border: 1px solid #ddd; margin-top: 10px; font-weight: normal; }
+    #resetBtn:hover { color: #e74c3c; border-color: #e74c3c; }
+  </style>
+</head>
+<body>
+  <h3>Focus Monitor</h3>
+  <div class="stats">
+    <div class="stat-item">
+      <span class="label">Focus</span>
+      <span id="focusCount" class="count" style="color:#27ae60">0</span>
+    </div>
+    <div class="stat-item">
+      <span class="label">Drift</span>
+      <span id="distractCount" class="count" style="color:#e74c3c">0</span>
+    </div>
+  </div>
+
+  <span class="input-label">Current Task:</span>
+  <input type="text" id="taskInput" placeholder="What should you do?">
+
+  <span class="input-label">Interval (Mins):</span>
+  <div class="row">
+    <input type="number" id="minTime" step="0.1" placeholder="Min">
+    <span style="color:#ccc; margin-bottom:8px;">-</span>
+    <input type="number" id="maxTime" step="0.1" placeholder="Max">
+  </div>
+
+  <button id="saveBtn">Save & Start</button>
+  <button id="resetBtn">Reset Counts</button>
+
+  <script src="popup.js"></script>
+</body>
+</html>
